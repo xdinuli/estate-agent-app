@@ -4,7 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Routes, Route } from "react-router-dom";
 import SearchPage from "./pages/SearchPage";
-import PropertyPage from "./pages/PropertyPage";
+import PropertyPage from "./components/PropertyCard";
+// import PropertyPage from "./pages/PropertyPage";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -31,15 +32,12 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Routes>
+        <Route path="/" element={<SearchPage />} />
+        <Route path="/property/:id" element={<PropertyPage />} />
+      </Routes>
     </>
   )
 }
 
-export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<SearchPage />} />
-      <Route path="/property/:id" element={<PropertyPage />} />
-    </Routes>
-  );
-}
+export default App

@@ -5,7 +5,7 @@
     "price": 750000,
     "bedrooms": 4,
     "dateAdded": "2024-10-12",
-    "postcode": "CMB1",
+    "postcode": "CMB",
     "shortDescription": "Spacious family house in Colombo",
     "longDescription": "A beautifully presented four-bedroom family home located in the heart of Colombo. Close to transport links and local amenities.",
     "images": [
@@ -25,7 +25,7 @@
     "price": 420000,
     "bedrooms": 2,
     "dateAdded": "2024-11-05",
-    "postcode": "NWE1",
+    "postcode": "NWE",
     "shortDescription": "Modern apartment near Nanu Oya",
     "longDescription": "A stylish two-bedroom flat offering contemporary living spaces, ideal for professionals.",
     "images": [
@@ -45,7 +45,7 @@
     "price": 980000,
     "bedrooms": 5,
     "dateAdded": "2024-09-18",
-    "postcode": "GLL1",
+    "postcode": "GLL",
     "shortDescription": "Luxury townhouse in Galle",
     "longDescription": "An elegant five-bedroom townhouse located moments away from Galle attractions.",
     "images": [
@@ -65,7 +65,7 @@
     "price": 310000,
     "bedrooms": 1,
     "dateAdded": "2024-12-01",
-    "postcode": "NGB1",
+    "postcode": "NGB",
     "shortDescription": "Compact flat in Negombo",
     "longDescription": "A well-maintained one-bedroom flat ideal for first-time buyers or investors.",
     "images": [
@@ -85,7 +85,7 @@
     "price": 560000,
     "bedrooms": 3,
     "dateAdded": "2024-10-28",
-    "postcode": "KND1",
+    "postcode": "KND",
     "shortDescription": "Three-bedroom house in Kandy",
     "longDescription": "A charming three-bedroom house located near the park and the river.",
     "images": [
@@ -105,7 +105,7 @@
     "price": 690000,
     "bedrooms": 3,
     "dateAdded": "2024-11-20",
-    "postcode": "CMB2",
+    "postcode": "CMB",
     "shortDescription": "Central Colombo apartment",
     "longDescription": "A premium three-bedroom apartment situated in the heart of Colombo.",
     "images": [
@@ -125,7 +125,7 @@
     "price": 450000,
     "bedrooms": 2,
     "dateAdded": "2024-12-10",
-    "postcode": "KND2",
+    "postcode": "KND",
     "shortDescription": "Cosy starter home in Kandy",
     "longDescription": "A delightful two-bedroom apartment perfect for small families or first-time buyers.",
     "images": [
@@ -145,7 +145,7 @@
     "price": 380000,
     "bedrooms": 4,
     "dateAdded": "2024-11-15",
-    "postcode": "NWE2",
+    "postcode": "NWE",
     "shortDescription": "Four-bedroom villa in Nuwara Eliya",
     "longDescription": "A modern four-bedroom villa located close to Nuwara Eliya's main attractions.",
     "images": [

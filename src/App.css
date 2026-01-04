@@ -232,3 +232,72 @@ h1 {
 .read-the-docs {
   color: #888;
 }
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+  opacity: 0.9;
+}
+
+.property-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.property-info button {
+  margin-right: 8px;
+  margin-top: 10px;
+  background: #e6f0ff;
+  padding: 6px 10px;
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    flex-direction: column;
+  }
+  .favorites-panel {
+    order: -1;
+    border-left: none;
+    border-top: 2px solid #eee;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .thumbnails {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-form {
+    padding: 15px;
+  }
+
+  .search-form label {
+    font-size: 14px;
+  }
+
+  h1, h2 {
+    font-size: 20px;
+  }
+
+  .property-card img {
+    height: 150px;
+  }
+}

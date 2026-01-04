@@ -51,14 +51,24 @@ export default function SearchForm({ filters, setFilters }) {
                 onChange={(values) =>
                 setFilters({ ...filters, price: values })
                 }
-                renderTrack={({ props, children }) => (
-                <div {...props} className="range-track"> {children}
-                </div>
-                )}
-                renderThumb={({ props }) => (
-                <div {...props} className="range-thumb" />
-                )}
+
+                renderTrack={({ props, children }) => {
+                    const {key: elementKey, ...rest} = props;
+                    return (
+                        <div key={elementKey} {...rest} className="range-track">
+                            {children}
+                        </div>
+                    );
+                }}
+
+                renderThumb={({ props }) => {
+                    const {key: elementKey, ...rest} = props;
+                    return (
+                 <div key={elementKey} {...rest} className="range-thumb" />
+                    );
+                }}
                 />
+
                 <div className="range-values">
                     £{filters.price[0].toLocaleString()} – £{filters.price[1].toLocaleString()}
                 </div>

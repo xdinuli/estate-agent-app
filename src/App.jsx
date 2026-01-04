@@ -2,8 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { Routes, Route } from "react-router-dom";
 import SearchPage from "./pages/SearchPage";
-import PropertyPage from "./components/PropertyCard";
-// import PropertyPage from "./pages/PropertyPage";
+import PropertyPage from "./pages/PropertyPage";
 
 function App() {
   const [count, setCount] = useState(0)

@@ -14,14 +14,6 @@ export default function TabsSection({ property }) {
       </TabPanel>
 
       <TabPanel>
-        <img
-          src={property.floorPlan}
-          alt="Floor plan"
-          className="floorplan"
-        />
-      </TabPanel>
-
-      <TabPanel>
         <iframe
           title="Google Map"
           width="100%"

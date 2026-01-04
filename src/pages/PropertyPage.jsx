@@ -6,7 +6,7 @@ import TabsSection from "../components/TabsSection";
 export default function PropertyPage() {
   const { id } = useParams();
   const property = properties.find(
-    (p) => property.id === parseInt(id)
+    (property) => property.id === parseInt(id)
   );
 
   if (!property) return <p>Property not found!</p>;

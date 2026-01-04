@@ -75,6 +75,47 @@ h1 {
   transition: background-color 0.2s;
 }
 
+.search-form {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  display: grid;
+  gap: 12px;
+}
+
+.search-form label {
+  /* display: block; */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.range-track {
+  height: 6px;
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #007bff;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.range-thumb:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.range-values {
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

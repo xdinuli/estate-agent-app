@@ -4,9 +4,10 @@ import { useDrag } from 'react-dnd';
 
 export default function PropertyCard({ property }) {
     const { addFavorite } = useFavorites();
+    
     const [{ isDragging }, drag] = useDrag(() => ({
         type: 'property',
-        item: { id: property.id },
+        item: property, // <--- CHANGE: Pass the full property object, not just { id }
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging(),
         }),
@@ -18,7 +19,7 @@ export default function PropertyCard({ property }) {
         className="property-card" 
         style={{ opacity: isDragging ? 0.5 : 1 }}>
         <img 
-        src={property.images[0]} 
+        src={property.images[0]} // Ensure your JSON has 'images' array, or use 'picture'
         alt={property.title} 
         className="property-image" />
 

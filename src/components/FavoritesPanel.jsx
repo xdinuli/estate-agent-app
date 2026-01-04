@@ -4,47 +4,60 @@ import { useFavorites } from '../context/FavoritesContext';
 export default function FavoritesPanel() {
     const { 
         favorites, 
-        addFavorites, 
+        addFavorite, 
         removeFavorite, 
         clearFavorites 
     } = useFavorites();
 
     const [{ isOver }, drop] = useDrop(() => ({
         accept: 'property',
-        drop: (item) => addFavorites(item.id),
+        drop: (item) => addFavorite(item), 
         collect: (monitor) => ({
             isOver: !!monitor.isOver(),
         }),
     }));
 
     return (
-        <div 
-            ref={drop}
-            className="favorites-panel"
-            style={{ backgroundColor: isOver ? '#f0f0f0' : 'white' }}>
-
+        <div className="favorites-panel">
             <h2>Favorites ❤</h2>
-            {favorites.length === 0 && <p>No favorite properties yet. Drag and drop a property here to add it to your favorites.</p>}
+            
+            {/* --- SEPARATE DRAG AREA --- */}
+            {/* The drop ref is ONLY here, making this the only "active" zone */}
+            <div 
+                ref={drop} 
+                className={`drop-zone ${isOver ? 'active' : ''}`}
+            >
+                <p>
+                    {isOver ? "Drop to Add!" : "Drag Properties Here +"}
+                </p>
+            </div>
 
-            {favorites.map((property) => (
-                <div 
-                key={property.id} 
-                className="favorite-item">
-                    <span>
-                        <h3>{property.title}</h3>
-                        £{property.price.toLocaleString()} — {property.post}
-                    </span>
-                    
-                    <button onClick={() => removeFavorite(property.id)}>
-                        Remove
-                    </button>
-                </div>
-            ))}
+            {/* --- TEXT AREA / LIST --- */}
+            <div className="favorites-list">
+                {favorites.length === 0 && (
+                    <p className="empty-message">No favorite properties saved yet.</p>
+                )}
+
+                {favorites.map((property) => (
+                    <div key={property.id} className="favorite-item">
+                        <div className="favorite-info">
+                            <h4>{property.type} in {property.location}</h4>
+                            <p className="price">£{property.price.toLocaleString()}</p>
+                        </div>
+                        
+                        <button 
+                            className="remove-btn"
+                            onClick={() => removeFavorite(property.id)}
+                            aria-label="Remove property"
+                        >
+                            &times;
+                        </button>
+                    </div>
+                ))}
+            </div>
 
             {favorites.length > 0 && (
-                <button
-                onClick={clearFavorites} 
-                className="clear-btn">
+                <button onClick={clearFavorites} className="clear-btn">
                     Clear All Favorites
                 </button>
             )}

@@ -30,67 +30,69 @@ export default function SearchForm({ filters, setFilters }) {
         { value: "KND", label: "Kandy" },
     ];
 
-    return (
-        <div className="search-form">
-            <h2>Search Properties</h2>
+    // inside SearchForm.jsx
 
+return (
+    <div className="search-form">
+        <h2>Search Properties</h2>
+
+        {/* Group 1: Type */}
+        <div className="form-group">
             <label>Property Type</label>
             <Select
                 options={typeOptions}
                 defaultValue={typeOptions[0]}
-                onChange={(opt) => 
-                    setFilters({ ...filters, type: opt.value })}
+                onChange={(opt) => setFilters({ ...filters, type: opt.value })}
             />
+        </div>
 
+        {/* Group 2: Price - This might span 2 columns nicely if we wanted, 
+            but for now keep it standard */}
+        <div className="form-group">
             <label>Price Range (£)</label>
             <Range
                 step={10000}
                 min={200000}
                 max={1000000}
                 values={filters.price}
-                onChange={(values) =>
-                setFilters({ ...filters, price: values })
-                }
+                onChange={(values) => setFilters({ ...filters, price: values })}
+                renderTrack={({ props, children }) => (
+                    <div {...props} className="range-track">{children}</div>
+                )}
+                renderThumb={({ props }) => (
+                    <div {...props} className="range-thumb" />
+                )}
+            />
+            <div className="range-values">
+                £{filters.price[0].toLocaleString()} – £{filters.price[1].toLocaleString()}
+            </div>
+        </div>
 
-                renderTrack={({ props, children }) => {
-                    const {key: elementKey, ...rest} = props;
-                    return (
-                        <div key={elementKey} {...rest} className="range-track">
-                            {children}
-                        </div>
-                    );
-                }}
-
-                renderThumb={({ props }) => {
-                    const {key: elementKey, ...rest} = props;
-                    return (
-                 <div key={elementKey} {...rest} className="range-thumb" />
-                    );
-                }}
-                />
-
-                <div className="range-values">
-                    £{filters.price[0].toLocaleString()} – £{filters.price[1].toLocaleString()}
-                </div>
-
+        {/* Group 3: Bedrooms */}
+        <div className="form-group">
             <label>Bedrooms</label>
             <Select
                 options={bedroomOptions}
                 defaultValue={bedroomOptions[0]}
-                onChange={(opt) => 
-                    setFilters({ ...filters, bedrooms: opt.value })}
+                onChange={(opt) => setFilters({ ...filters, bedrooms: opt.value })}
             />
+        </div>
 
+        {/* Group 4: Date */}
+        <div className="form-group">
             <label>Date Added</label>
             <DatePicker
                 selected={filters.date}
-                onChange={(date) => 
-                    setFilters({ ...filters, date })}
+                onChange={(date) => setFilters({ ...filters, date })}
                 dateFormat="yyyy-MM-dd"
                 isClearable={true}
                 placeholderText="Select a date"
+                className="date-input" /* You might need to style this class slightly to match Select height */
             />
+        </div>
 
+        {/* Group 5: Postcode */}
+        <div className="form-group">
             <label>Postcode</label>
             <Select
                 options={postcodeOptions}
@@ -98,5 +100,6 @@ export default function SearchForm({ filters, setFilters }) {
                 onChange={(opt) => setFilters({ ...filters, postcode: opt.value })}
             />
         </div>
+    </div>
     );
 }

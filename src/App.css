@@ -1,392 +1,749 @@
-#root {
-  max-width: 1280px;
+/* src/App.css */
+
+/* 1. Define Design Tokens for Consistency (Spec: "use one set of design elements") */
+:root {
+  --primary-color: #2563eb;       /* Professional Royal Blue */
+  --primary-hover: #1d4ed8;
+  --secondary-color: #64748b;     /* Slate Grey for secondary text */
+  --accent-color: #f59e0b;        /* Amber for actions/favorites */
+  --background-light: #f8fafc;    /* Very light blue-grey background */
+  --card-bg: #ffffff;
+  --text-dark: #1e293b;
+  --text-light: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --radius: 12px;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif; /* Clean, modern font */
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Layout & Grouping (Spec: "visual clues based on groupings") --- */
+.layout {
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 30px;
+  align-items: flex-start;
+  justify-content: center; /* Aligns main and sidebar to top */
+}
+
+.main {
+  flex: 3; /* Takes up 75% of space */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* --- Typography & Hierarchy (Spec: "use of headings... in proportion") --- */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+/* --- Search Form Styling (Spec: "Grouping related items") --- */
+.search-form {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  display: grid;
+  /* Create a 3-column grid for desktop to group inputs nicely */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+  align-items: end; /* Aligns inputs with their labels */
+}
+
+.search-form h2 {
+  grid-column: 1 / -1; /* Header spans full width */
+  margin-top: 0;
+  border: none;
+  color: var(--primary-color);
+}
+
+.search-form label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Range Slider Customization */
+.range-track {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.range-values {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-color);
   text-align: center;
 }
 
-body{
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
-  margin: 0;
-  background-color: #f0f0f0;
-  color: #333;
-}
-
-.container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  /* flex-direction: column;
-  align-items: center;
-  justify-content: center; */
-  padding: 20px;
-}
-
-h1 {
-  margin-bottom: 20px;
-  font-size: 2.5rem;
-  color: #222;
-}
-
+/* --- Results Grid & Cards --- */
 .results-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
 }
 
 .property-card {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--card-bg);
+  border-radius: var(--radius);
   overflow: hidden;
-  transition: transform 0.2s;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
 }
 
 .property-card:hover {
   transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
 }
 
 .property-card img {
   width: 100%;
-  height: 180px;
+  height: 220px;
   object-fit: cover;
 }
 
 .property-info {
-  padding: 15px;
-}
-
-.property-info h3 {
-  margin: 0 0 10px;
-  font-size: 1.25rem;
-  color: #333;
-}
-
-.view-btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-}
-
-.search-form {
-  background: #fff;
   padding: 20px;
-  margin-bottom: 30px;
-  border-radius: 6px;
-  display: grid;
-  gap: 12px;
-}
-
-.search-form label {
-  /* display: block; */
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.range-track {
-  position: relative;
-  height: 6px;
-  background: #ddd;
-  border-radius: 4px;
-}
-
-.range-thumb {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  background: #007bff;
-  border-radius: 50%;
-  cursor: pointer;
-  border: none;
-}
-
-.range-thumb:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
-}
-
-.range-values {
-  font-weight: bold;
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-.gallery {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 10px 0;
-  margin-bottom: 30px;
-}
-
-.main-image {
-  width: 100%;
-  max-width: 400px;
-  object-fit: cover;
-  height: auto;
-  border-radius: 6px;
-}
-
-.thumbnails {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+}
+
+.property-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: var(--text-dark);
+}
+
+.property-price {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 800;
+  margin: 0 0 15px 0;
+}
+
+.property-desc {
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1; /* Pushes buttons to bottom */
+}
+
+/* --- Buttons (Spec: "Alignment of elements... visually connected") --- */
+.card-actions {
+  display: flex;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: auto;
 }
 
-.thumbnails img {
-  width: 80px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 4px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  opacity: 0.8;
-}
-
-.thumbnails img.active,
-.thumbnails img:hover {
-  opacity: 1;
-  border: 2px solid #007bff;
-}
-
-.layout {
+button, .view-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
   text-align: center;
-  min-height: 100vh;
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #1a1a1a;
+  border: none;
+  cursor: pointer;
 }
 
-.main {
-  flex: 3;
-}
-
-.favorites-panel {
+/* Favorite Button */
+.property-info button {
+  background-color: #fff0f0;
+  color: #e11d48;
+  border: 1px solid #ffe4e6;
   flex: 1;
+}
+
+.property-info button:hover {
+  background-color: #e11d48;
+  color: white;
+}
+
+/* View Button */
+.view-btn {
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  flex: 1;
+}
+
+.view-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* --- Favorites Panel (Sidebar) --- */
+.favorites-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1; /* Takes up 25% */
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: var(--radius);
   border-left: 2px solid #eee;
-  padding: 15px;
-  border-radius: 6px;
-  min-height: 300px;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 100px; /* Sticks to top when scrolling */
+  max-height: 85vh;
+  height: fit-content;
+  z-index: 1;
+  overflow-y: auto;
+  position: sticky;
+}
+
+.favorites-panel h2 {
+  font-size: 1.2rem;
+  border-bottom: none;
+  color: var(--text-dark);
 }
 
 .favorite-item {
   display: flex;
-  margin-bottom: 8px;
-  text-align: left;
-  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #f1f5f9;
 }
 
-.clear-btn {
-  margin-top: 10px;
-  width: 100%;
-  background: #d9534f;
-  padding: 8px 12px;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.favorite-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  object-fit: cover;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-  opacity: 0.9;
-}
-
-.property-info p {
-  margin: 5px 0;
-  color: #555;
-}
-
-.property-info button {
-  margin-right: 8px;
-  margin-top: 10px;
-  background: #e6f0ff;
-  padding: 6px 10px;
-}
+/* --- Responsive Design (Spec: "smaller than iPad landscape width") --- */
+/* iPad Landscape is typically 1024px. The spec requires a layout change here. */
 
 @media (max-width: 1024px) {
   .layout {
-    flex-direction: column;
+    flex-direction: column; /* Stack main content and favorites */
+    padding: 15px;
   }
-  .favorites-panel {
-    order: 2;
-    border-left: none;
-    border-top: 2px solid #eee;
+
+  .main {
     width: 100%;
-    margin-top: 20px;
+  }
+
+  .favorites-panel {
+    width: 100%;
+    order: -1; /* Move favorites to top on tablets */
+    position: static; /* Stop sticky behavior */
+    max-height: 300px;
     margin-bottom: 20px;
   }
 
-  .results-grid {
-    order: 1;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-
-  .thumbnails {
-    flex-wrap: wrap;
+  .search-form {
+    grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .search-form {
-    padding: 15px;
+    grid-template-columns: 1fr; /* 1 column on mobile */
+    padding: 20px;
   }
-
-  .search-form label {
-    font-size: 14px;
-  }
-
-  h1, h2 {
-    font-size: 20px;
-  }
-
-  .property-card img {
-    height: 150px;
-  }
-}
-
-@media (max-width: 576px) {
-  .results-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 12px;
-  }
-
-  .property-card img {
-    height: 140px; /* smaller image height */
-  }
-
-  .search-form {
-    padding: 15px;
-    gap: 10px;
-  }
-
-  .range-values {
-    font-size: 12px; /* slightly smaller text */
-  }
-
+  
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
-}
 
-@media (max-width: 400px) {
   .results-grid {
-    grid-template-columns: 1fr; /* single column layout */
-  }
-
-  .property-card {
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .property-card img {
-    height: 120px;
-  }
-
-  .search-form {
-    padding: 12px;
-    gap: 8px;
-  }
-
-  .search-form label {
-    font-size: 14px;
-  }
-
-  .range-thumb {
-    width: 16px;
-    height: 16px; /* slightly smaller thumb for tiny screens */
-  }
-
-  h1 {
-    font-size: 1.5rem;
+    grid-template-columns: 1fr;
   }
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: #ffffff;
-    color: #213547;
-  }
+/* --- Date Picker Styling to Match React-Select --- */
 
-  .property-card {
-    background-color: #fafafa;
-  }
+/* 1. Ensure the wrapper takes full width of the grid cell */
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  width: 100%;
+  display: block;
+}
 
-  .view-btn {
-    background-color: #535bf2;
-  }
+/* 2. Style the actual input field to look like a Select box */
+.react-datepicker__input-container input {
+  width: 100%;
+  height: 38px; /* Standard React-Select height */
+  background-color: white;
+  border: 1px solid #cccccc; /* Standard React-Select border */
+  border-radius: 4px;        /* Standard React-Select radius */
+  padding: 0 10px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif; /* Match App font */
+  font-size: 1rem; /* Match select text size */
+  color: hsl(0, 0%, 20%); /* Standard React-Select text color */
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  outline: none;
+  transition: all 0.2s;
+}
 
-  .view-btn:hover {
-    background-color: #646cff;
-  }
+/* 3. Add the blue focus ring to match React-Select's behavior */
+.react-datepicker__input-container input:focus {
+  border-color: #2684FF;
+  box-shadow: 0 0 0 1px #2684FF;
+}
 
-  .range-track {
-    background: #ccc;
-  }
+/* 4. Fix placeholder color */
+.react-datepicker__input-container input::placeholder {
+  color: #808080;
+}
 
-  .range-thumb {
-    background: #535bf2;
+/* --- Calendar Popup Customization --- */
+
+/* 1. Main Container: Font & Shape */
+.react-datepicker {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden;
+}
+
+/* 2. Header Section (Month/Year) */
+.react-datepicker__header {
+  background-color: #f8fafc !important; /* var(--background-light) */
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding-top: 15px !important;
+}
+
+.react-datepicker__current-month {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  color: #1e293b !important; /* var(--text-dark) */
+  margin-bottom: 5px;
+  font-size: 1rem !important;
+}
+
+.react-datepicker__day-name {
+  color: #64748b !important; /* var(--secondary-color) */
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  font-size: 0.75rem !important;
+  margin: 5px !important;
+}
+
+/* 3. The Days (Grid) */
+.react-datepicker__day {
+  font-family: 'Inter', sans-serif !important;
+  color: #1e293b !important;
+  width: 2rem !important;
+  line-height: 2rem !important;
+  margin: 0.166rem !important;
+  border-radius: 50% !important; /* Circular selection looks more modern */
+}
+
+/* 4. Hover State */
+.react-datepicker__day:hover {
+  background-color: #dbeafe !important; /* Very light blue */
+}
+
+/* 5. Selected Date */
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #2563eb !important; /* var(--primary-color) */
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+/* 6. Today's Date (if not selected) */
+.react-datepicker__day--today {
+  font-weight: bold;
+  color: #2563eb !important;
+}
+
+/* --- Favorites Panel Styling --- */
+
+/* The Drop Zone Box */
+.drop-zone {
+  border: 2px dashed #cbd5e1; /* Light grey dash */
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: #64748b;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Active state when dragging over */
+.drop-zone.active {
+  border-color: var(--primary-color); /* Royal Blue */
+  background-color: #eff6ff; /* Light Blue BG */
+  color: var(--primary-color);
+  transform: scale(1.02);
+}
+
+/* The List Container */
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.empty-message {
+  text-align: center;
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Individual Favorite Item (Mini Card) */
+.favorite-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 12px 15px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm); /* Matches main cards */
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.favorite-item:hover {
+  transform: translateX(2px);
+  border-color: #cbd5e1;
+  transition: all 0.2s ease;
+}
+
+.favorite-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.favorite-info .price {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* Remove 'X' Button */
+.remove-btn {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid transparent;
+  font-size: 1.2rem;
+  padding: 4px 8px;
+  line-height: 1;
+  margin-left: 10px;
+  border-radius: 6px;
+}
+
+.remove-btn:hover {
+  background-color: #fef2f2;
+  color: #ef4444; /* Red */
+  border-color: #fecaca;
+}
+
+/* Clear All Button Styling */
+.clear-btn {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 0.85rem;
+  padding: 10px;
+}
+
+.clear-btn:hover {
+  background-color: #f1f5f9;
+  color: #ef4444;
+  border-color: #cbd5e1;
+}
+
+/* --- APP LAYOUT (Sticky Footer) --- */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Forces app to take full screen height */
+}
+
+.app-content {
+  flex: 1; /* Pushes the footer down if content is short */
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* --- HEADER STYLES --- */
+.app-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #2563eb; /* Royal Blue */
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #64748b;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+.signin-btn {
+  background-color: #2563eb;
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.signin-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* --- FOOTER STYLES --- */
+.app-footer {
+  background-color: #1e293b; /* Dark Slate */
+  color: #94a3b8; /* Light Grey Text */
+  padding: 30px 0;
+  margin-top: auto; /* Ensures it sits at the bottom */
+}
+
+.footer-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Mobile Tweak for Footer */
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
   }
+}
+
+/* --- Sign In Page Styling --- */
+
+/* Centers the card on the page */
+.signin-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh; /* Takes up most of the screen vertical space */
+  width: 100%;
+}
+
+.signin-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+.signin-card h2 {
+  margin-top: 0;
+  color: #1e293b;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  border-bottom: none; /* Override default h2 border */
+}
+
+.signin-card p {
+  color: #64748b;
+  margin-bottom: 30px;
+}
+
+/* Form Elements */
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.signin-form label {
+  display: block;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.signin-form input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s;
+  box-sizing: border-box; /* Important for padding */
+}
+
+.signin-form input:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Submit Button */
+.signin-submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #2563eb;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.signin-submit-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Footer Link */
+.signin-footer {
+  margin-top: 25px;
+  font-size: 0.9rem;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 20px;
+}
+
+.signin-footer a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signin-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Add to src/App.css */
+
+.drop-zone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: #64748b;
+  background-color: #f8fafc;
+  margin-bottom: 20px; /* Spacing between Drag Area and Text List */
+  transition: all 0.2s ease;
+}
+
+.drop-zone.active {
+  border-color: #2563eb;
+  background-color: #eff6ff;
+  color: #2563eb;
+  transform: scale(1.02);
 }

@@ -91,12 +91,16 @@ h1 {
 }
 
 .range-track {
+  position: relative;
   height: 6px;
   background: #ddd;
   border-radius: 4px;
 }
 
 .range-thumb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 18px;
   height: 18px;
   background: #007bff;
@@ -267,7 +271,7 @@ button:hover {
     flex-direction: column;
   }
   .favorites-panel {
-    order: -1;
+    order: 2;
     border-left: none;
     border-top: 2px solid #eee;
     width: 100%;
@@ -276,6 +280,7 @@ button:hover {
   }
 
   .results-grid {
+    order: 1;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 
@@ -299,5 +304,89 @@ button:hover {
 
   .property-card img {
     height: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .results-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .property-card img {
+    height: 140px; /* smaller image height */
+  }
+
+  .search-form {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .range-values {
+    font-size: 12px; /* slightly smaller text */
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .results-grid {
+    grid-template-columns: 1fr; /* single column layout */
+  }
+
+  .property-card {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .property-card img {
+    height: 120px;
+  }
+
+  .search-form {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .search-form label {
+    font-size: 14px;
+  }
+
+  .range-thumb {
+    width: 16px;
+    height: 16px; /* slightly smaller thumb for tiny screens */
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff;
+    color: #213547;
+  }
+
+  .property-card {
+    background-color: #fafafa;
+  }
+
+  .view-btn {
+    background-color: #535bf2;
+  }
+
+  .view-btn:hover {
+    background-color: #646cff;
+  }
+
+  .range-track {
+    background: #ccc;
+  }
+
+  .range-thumb {
+    background: #535bf2;
   }
 }

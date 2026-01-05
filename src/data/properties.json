@@ -6,7 +6,7 @@
     "bedrooms": 4,
     "floorplan": "/images/floorplan.png",
     "dateAdded": "2024-10-12",
-    "location": "Colombo 7",
+    "title": "Colombo 7",
     "shortDescription": "Prestigious 4-bedroom family residence in Cinnamon Gardens",
     "longDescription": "This prestigious four-bedroom residence is situated in the exclusive Cinnamon Gardens district, offering an oasis of calm in the city center. The property boasts a sprawling manicured garden, a double garage, and spacious interiors featuring teak flooring and high ceilings. Perfectly positioned near leading international schools and diplomatic missions, it combines colonial elegance with modern security and convenience.",
     "images": [
@@ -27,7 +27,7 @@
     "bedrooms": 2,
     "floorplan": "/images/floorplan.png",
     "dateAdded": "2024-11-05",
-    "location": "Nuwara Eliya",
+    "title": "Nuwara Eliya",
     "shortDescription": "Scenic 2-bedroom flat with tea plantation views",
     "longDescription": "Perched high in the mist-covered hills near Nanu Oya, this two-bedroom flat offers a serene escape with panoramic views of the surrounding tea estates. The apartment features a cozy open-plan living area with large glass panels designed to capture the morning mist and afternoon sun. Ideal as a holiday retreat or rental investment, it is just a short drive from Gregory Lake and Victoria Park.",
     "images": [
@@ -48,7 +48,7 @@
     "bedrooms": 5,
     "floorplan": "/images/floorplan.png",
     "dateAdded": "2024-09-18",
-    "location": "Galle",
+    "title": "Galle",
     "shortDescription": "Historic Dutch-style villa near Galle Fort",
     "longDescription": "Immerse yourself in history with this stunning Dutch-inspired villa, located just minutes from the UNESCO World Heritage Galle Fort. The property features five expansive bedrooms opening onto deep verandas, a private salt-water swimming pool, and a lush tropical garden filled with fruit trees. This restored masterpiece offers the perfect blend of heritage charm and modern luxury, making it a prime choice for a boutique villa.",
     "images": [
@@ -69,7 +69,7 @@
     "bedrooms": 1,
     "floorplan": "/images/floorplan.png",
     "dateAdded": "2024-12-01",
-    "location": "Negombo",
+    "title": "Negombo",
     "shortDescription": "Modern seaside apartment in Negombo",
     "longDescription": "Located just a stone's throw from the golden sands of Negombo Beach, this contemporary one-bedroom apartment is perfect for coastal living. The unit includes a fully equipped modern kitchen, air conditioning throughout, and a private balcony ideal for watching the sunset. With the international airport only 20 minutes away, this property serves as an excellent base for frequent travelers or a lucrative Airbnb rental.",
     "images": [
@@ -90,7 +90,7 @@
     "bedrooms": 3,
     "floorplan": "/images/floorplan.png",
     "dateAdded": "2024-10-28",
-    "location": "Kandy",
+    "title": "Kandy",
     "shortDescription": "Peaceful riverside home in Kandy suburbs",
     "longDescription": "This charming three-bedroom family home is nestled along the banks of the Mahaweli River, offering breathtaking water views and a cool river breeze. The architecture blends traditional Kandyan elements with modern design, featuring a central courtyard and a dedicated study area. The quiet neighborhood provides a peaceful environment while remaining just a ten-minute drive from the Kandy City Centre and Peradeniya Botanical Gardens.",
     "images": [
@@ -111,7 +111,7 @@
     "bedrooms": 3,
     "floorplan": "/images/floorplan.png",
     "dateAdded": "2024-11-20",
-    "location": "Colombo 02",
+    "title": "Colombo 02",
     "shortDescription": "Luxury high-rise apartment with ocean views",
     "longDescription": "Experience the height of luxury in this premium three-bedroom apartment located in the vibrant Colombo 02 district. Residents enjoy exclusive access to 5-star amenities, including a rooftop infinity pool, a fully equipped gymnasium, and a residents' lounge. Floor-to-ceiling windows flood the space with natural light and offer uninterrupted views of the Indian Ocean and the rapidly evolving city skyline.",
     "images": [
@@ -132,7 +132,7 @@
     "bedrooms": 2,
     "floorplan": "/images/floorplan.png",
     "dateAdded": "2024-12-10",
-    "location": "Kandy Hills",
+    "title": "Kandy Hills",
     "shortDescription": "Cozy hillside retreat overlooking Kandy Lake",
     "longDescription": "This delightful hillside apartment offers commanding views over Kandy Lake and the golden roof of the Temple of the Tooth Relic. The two-bedroom unit features polished wooden floors, a modern pantry, and a private terrace perfect for evening relaxation. Situated within a secure gated community, it provides a tranquil sanctuary that captures the spiritual and cultural essence of the hill capital.",
     "images": [
@@ -153,7 +153,7 @@
     "bedrooms": 4,
     "floorplan": "/images/floorplan.png",
     "dateAdded": "2024-11-15",
-    "location": "Nuwara Eliya",
+    "title": "Nuwara Eliya",
     "shortDescription": "Classic colonial bungalow in Nuwara Eliya",
     "longDescription": "Step into a bygone era with this authentic colonial bungalow in Nuwara Eliya, affectionately known as 'Little England'. The property features four spacious bedrooms with working fireplaces, timber-paneled walls, and a large English-style rose garden. Located near the prestigious Golf Club and racecourse, this bungalow offers a rare opportunity to own a piece of history in Sri Lanka's coolest climate.",
     "images": [

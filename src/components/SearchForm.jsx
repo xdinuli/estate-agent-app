@@ -21,22 +21,10 @@ export default function SearchForm({ filters, setFilters }) {
         { value: 5, label: "5" },
     ];
 
-    const postcodeOptions = [
-        { value: "Any", label: "Any" },
-        { value: "CMB", label: "Colombo" },
-        { value: "NWE", label: "Negombo" },
-        { value: "GLL", label: "Galle" },
-        { value: "NGB", label: "Nuwara Eliya" },
-        { value: "KND", label: "Kandy" },
-    ];
-
-    // inside SearchForm.jsx
-
 return (
     <div className="search-form">
         <h2>Search Properties</h2>
 
-        {/* Group 1: Type */}
         <div className="form-group">
             <label>Property Type</label>
             <Select
@@ -46,8 +34,6 @@ return (
             />
         </div>
 
-        {/* Group 2: Price - This might span 2 columns nicely if we wanted, 
-            but for now keep it standard */}
         <div className="form-group">
             <label>Price Range (£)</label>
             <Range
@@ -68,7 +54,6 @@ return (
             </div>
         </div>
 
-        {/* Group 3: Bedrooms */}
         <div className="form-group">
             <label>Bedrooms</label>
             <Select
@@ -78,7 +63,6 @@ return (
             />
         </div>
 
-        {/* Group 4: Date */}
         <div className="form-group">
             <label>Date Added</label>
             <DatePicker
@@ -87,17 +71,7 @@ return (
                 dateFormat="yyyy-MM-dd"
                 isClearable={true}
                 placeholderText="Select a date"
-                className="date-input" /* You might need to style this class slightly to match Select height */
-            />
-        </div>
-
-        {/* Group 5: Postcode */}
-        <div className="form-group">
-            <label>Postcode</label>
-            <Select
-                options={postcodeOptions}
-                defaultValue={postcodeOptions[0]}
-                onChange={(opt) => setFilters({ ...filters, postcode: opt.value })}
+                className="date-input"
             />
         </div>
     </div>

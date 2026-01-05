@@ -7,7 +7,7 @@ export default function PropertyCard({ property }) {
     
     const [{ isDragging }, drag] = useDrag(() => ({
         type: 'property',
-        item: property, // <--- CHANGE: Pass the full property object, not just { id }
+        item: property, 
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging(),
         }),

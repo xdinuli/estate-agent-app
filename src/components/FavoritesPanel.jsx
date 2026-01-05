@@ -21,8 +21,6 @@ export default function FavoritesPanel() {
         <div className="favorites-panel">
             <h2>Favorites ❤</h2>
             
-            {/* --- SEPARATE DRAG AREA --- */}
-            {/* The drop ref is ONLY here, making this the only "active" zone */}
             <div 
                 ref={drop} 
                 className={`drop-zone ${isOver ? 'active' : ''}`}
@@ -32,7 +30,6 @@ export default function FavoritesPanel() {
                 </p>
             </div>
 
-            {/* --- TEXT AREA / LIST --- */}
             <div className="favorites-list">
                 {favorites.length === 0 && (
                     <p className="empty-message">No favorite properties saved yet.</p>

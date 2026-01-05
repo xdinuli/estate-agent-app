@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 export default function ImageGallery({ images }) {
-  // We track the INDEX now, not just the string, so we can do Next/Prev
   const [currentIndex, setCurrentIndex] = useState(0);
 
   if (!images || images.length === 0) return null;
@@ -16,7 +15,6 @@ export default function ImageGallery({ images }) {
 
   return (
     <div className="gallery-container">
-      {/* 1. Main "Swipe-able" Area */}
       <div className="main-image-wrapper">
         <button className="nav-btn prev" onClick={prevImage}>&#10094;</button>
         
@@ -33,7 +31,6 @@ export default function ImageGallery({ images }) {
         </div>
       </div>
 
-      {/* 2. Thumbnails Grid underneath */}
       <div className="thumbnails-grid">
         {images.map((img, index) => (
           <button

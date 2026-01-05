@@ -10,17 +10,14 @@ export default function TabsSection({ property }) {
         <Tab>Location</Tab>
       </TabList>
 
-      {/* Panel 1: Long Description */}
       <TabPanel>
         <div className="tab-content">
           <p>{property.longDescription}</p>
         </div>
       </TabPanel>
 
-      {/* Panel 2: Floor Plan */}
       <TabPanel>
         <div className="tab-content center-content">
-          {/* FIX 1: Ensure casing matches your JSON (floorPlan) in both places */}
           {property.floorplan ? (
              <img 
                 src={property.floorplan} 
@@ -33,7 +30,6 @@ export default function TabsSection({ property }) {
         </div>
       </TabPanel>
 
-      {/* Panel 3: Location (Google Map) */}
       <TabPanel>
         <div className="tab-content">
           <iframe
@@ -44,7 +40,6 @@ export default function TabsSection({ property }) {
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
-            // FIX 2 & 3: Fixed the ${} syntax and used a standard embed URL
             src={`https://maps.google.com/maps?q=${property.lat},${property.lng}&hl=es&z=14&output=embed`}
           />
         </div>

@@ -6,10 +6,6 @@ export function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
 
   const addFavorite = (property) => {
-    // 1. REMOVED the "Max 3" check
-    // Now we only check for duplicates.
-
-    // 2. Check for Duplicates
     const isDuplicate = favorites.find((item) => item.id === property.id);
     
     if (!isDuplicate) {

@@ -9,8 +9,7 @@ import SignInPage from "./pages/SignInPage"; // <-- 1. Import new page
 function App() {
   return (
     <div className="app-container">
-      
-      {/* --- HEADER --- */}
+    
       <header className="app-header">
         <div className="header-content">
           <Link to="/" className="logo">Estately</Link>
@@ -21,7 +20,6 @@ function App() {
         </div>
       </header>
 
-      {/* --- MAIN CONTENT --- */}
       <main className="app-content">
         <Routes>
           <Route path="/" element={<SearchPage />} />
@@ -31,7 +29,6 @@ function App() {
         </Routes>
       </main>
 
-      {/* --- FOOTER --- */}
       <footer className="app-footer">
         <div className="footer-content">
           <p>&copy; {new Date().getFullYear()} Estately. All rights reserved.</p>

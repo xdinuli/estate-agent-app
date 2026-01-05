@@ -3,25 +3,50 @@ import "react-tabs/style/react-tabs.css";
 
 export default function TabsSection({ property }) {
   return (
-    <Tabs>
+    <Tabs className="property-tabs">
       <TabList>
         <Tab>Description</Tab>
-        <Tab>Map</Tab>
+        <Tab>Floor Plan</Tab>
+        <Tab>Location on Map</Tab>
       </TabList>
 
+      {/* Panel 1: Long Description */}
       <TabPanel>
-        <p>{property.longDescription}</p>
+        <div className="tab-content">
+          <p>{property.longDescription}</p>
+        </div>
       </TabPanel>
 
+      {/* Panel 2: Floor Plan */}
       <TabPanel>
-        <iframe
-          title="Google Map"
-          width="100%"
-          height="300"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          src={`https://www.google.com/maps?q=${property.lat},${property.lng}&output=embed`}
-        />
+        <div className="tab-content center-content">
+          {property.floorPlan ? (
+             <img 
+                src={property.floorPlan} 
+                alt="Property Floor Plan" 
+                style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} 
+             />
+          ) : (
+             <p>Floor plan not available for this property.</p>
+          )}
+        </div>
+      </TabPanel>
+
+      {/* Panel 3: Location (Google Map) */}
+      <TabPanel>
+        <div className="tab-content">
+          <iframe
+            title="Property Location"
+            width="100%"
+            height="400"
+            style={{ border: 0, borderRadius: '8px' }}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            // Fixed the URL syntax here to be a standard embed
+            src={`https://maps.google.com/maps?q=${property.lat || 51.505},${property.lng || -0.09}&z=14&output=embed`}
+          />
+        </div>
       </TabPanel>
     </Tabs>
   );

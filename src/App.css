@@ -747,3 +747,50 @@ button, .view-btn {
   color: #2563eb;
   transform: scale(1.02);
 }
+
+/* --- Tabs Styling --- */
+.property-tabs {
+  margin-top: 30px;
+}
+
+.react-tabs__tab-list {
+  border-bottom: 2px solid #e2e8f0;
+  margin-bottom: 20px;
+}
+
+.react-tabs__tab {
+  padding: 10px 20px;
+  font-weight: 600;
+  color: #64748b;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.react-tabs__tab--selected {
+  color: #2563eb; /* Royal Blue */
+  border-bottom: 3px solid #2563eb;
+  background: transparent;
+  outline: none;
+}
+
+.react-tabs__tab:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.react-tabs__tab:after {
+  display: none; /* Removes default box border */
+}
+
+.tab-content {
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.center-content {
+  text-align: center;
+}

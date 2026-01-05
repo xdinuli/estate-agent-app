@@ -4,17 +4,18 @@
     "type": "House",
     "price": 750000,
     "bedrooms": 4,
+    "floorplan": "/images/floorplan.jpg",
     "dateAdded": "2024-10-12",
     "postcode": "CMB",
     "shortDescription": "Spacious family house in Colombo",
     "longDescription": "A beautifully presented four-bedroom family home located in the heart of Colombo. Close to transport links and local amenities.",
     "images": [
-      "/images/property1/1.jpg",
-      "/images/property1/2.jpg",
-      "/images/property1/3.jpg",
-      "/images/property1/4.jpg",
-      "/images/property1/5.jpg",
-      "/images/property1/6.jpg"
+      "/images/property1-1.jpg",
+      "/images/property1-2.jpg",
+      "/images/property1-3.jpg",
+      "/images/property1-4.jpg",
+      "/images/property1-5.jpg",
+      "/images/property1-6.jpg"
     ],
     "lat": 51.5416,
     "lng": -0.1433
@@ -24,17 +25,18 @@
     "type": "Flat",
     "price": 420000,
     "bedrooms": 2,
+    "floorplan": "/images/floorplan.jpg",
     "dateAdded": "2024-11-05",
     "postcode": "NWE",
     "shortDescription": "Modern apartment near Nanu Oya",
     "longDescription": "A stylish two-bedroom flat offering contemporary living spaces, ideal for professionals.",
     "images": [
-      "/images/property2/1.jpg",
-      "/images/property2/2.jpg",
-      "/images/property2/3.jpg",
-      "/images/property2/4.jpg",
-      "/images/property2/5.jpg",
-      "/images/property2/6.jpg"
+      "/images/property2-1.jpg",
+      "/images/property2-2.jpg",
+      "/images/property2-3.jpg",
+      "/images/property2-4.jpg",
+      "/images/property2-5.jpg",
+      "/images/property2-6.jpg"
     ],
     "lat": 51.5205,
     "lng": -0.0719
@@ -44,17 +46,18 @@
     "type": "Villa",
     "price": 980000,
     "bedrooms": 5,
+    "floorplan": "/images/floorplan.jpg",
     "dateAdded": "2024-09-18",
     "postcode": "GLL",
     "shortDescription": "Luxury townhouse in Galle",
     "longDescription": "An elegant five-bedroom townhouse located moments away from Galle attractions.",
     "images": [
-      "/images/property3/1.jpg",
-      "/images/property3/2.jpg",
-      "/images/property3/3.jpg",
-      "/images/property3/4.jpg",
-      "/images/property3/5.jpg",
-      "/images/property3/6.jpg"
+      "/images/property3-1.jpg",
+      "/images/property3-2.jpg",
+      "/images/property3-3.jpg",
+      "/images/property3-4.jpg",
+      "/images/property3-5.jpg",
+      "/images/property3-6.jpg"
     ],
     "lat": 51.4975,
     "lng": -0.1357
@@ -64,17 +67,18 @@
     "type": "Flat",
     "price": 310000,
     "bedrooms": 1,
+    "floorplan": "/images/floorplan.jpg",
     "dateAdded": "2024-12-01",
     "postcode": "NGB",
     "shortDescription": "Compact flat in Negombo",
     "longDescription": "A well-maintained one-bedroom flat ideal for first-time buyers or investors.",
     "images": [
-      "/images/property4/1.jpg",
-      "/images/property4/2.jpg",
-      "/images/property4/3.jpg",
-      "/images/property4/4.jpg",
-      "/images/property4/5.jpg",
-      "/images/property4/6.jpg"
+      "/images/property4-1.jpg",
+      "/images/property4-2.jpg",
+      "/images/property4-3.jpg",
+      "/images/property4-4.jpg",
+      "/images/property4-5.jpg",
+      "/images/property4-6.jpg"
     ],
     "lat": 51.4003,
     "lng": 0.0170
@@ -84,17 +88,18 @@
     "type": "House",
     "price": 560000,
     "bedrooms": 3,
+    "floorplan": "/images/floorplan.jpg",
     "dateAdded": "2024-10-28",
     "postcode": "KND",
     "shortDescription": "Three-bedroom house in Kandy",
     "longDescription": "A charming three-bedroom house located near the park and the river.",
     "images": [
-      "/images/property5/1.jpg",
-      "/images/property5/2.jpg",
-      "/images/property5/3.jpg",
-      "/images/property5/4.jpg",
-      "/images/property5/5.jpg",
-      "/images/property5/6.jpg"
+      "/images/property5-1.jpg",
+      "/images/property5-2.jpg",
+      "/images/property5-3.jpg",
+      "/images/property5-4.jpg",
+      "/images/property5-5.jpg",
+      "/images/property5-6.jpg"
     ],
     "lat": 51.4826,
     "lng": -0.0077
@@ -104,17 +109,18 @@
     "type": "Apartment",
     "price": 690000,
     "bedrooms": 3,
+    "floorplan": "/images/floorplan.jpg",
     "dateAdded": "2024-11-20",
     "postcode": "CMB",
     "shortDescription": "Central Colombo apartment",
     "longDescription": "A premium three-bedroom apartment situated in the heart of Colombo.",
     "images": [
-      "/images/property6/1.jpg",
-      "/images/property6/2.jpg",
-      "/images/property6/3.jpg",
-      "/images/property6/4.jpg",
-      "/images/property6/5.jpg",
-      "/images/property6/6.jpg"
+      "/images/property6-1.jpg",
+      "/images/property6-2.jpg",
+      "/images/property6-3.jpg",
+      "/images/property6-4.jpg",
+      "/images/property6-5.jpg",
+      "/images/property6-6.jpg"
     ],
     "lat": 51.5136,
     "lng": -0.1365
@@ -124,17 +130,18 @@
     "type": "Apartment",
     "price": 450000,
     "bedrooms": 2,
+    "floorplan": "/images/floorplan.jpg",
     "dateAdded": "2024-12-10",
     "postcode": "KND",
     "shortDescription": "Cosy starter home in Kandy",
     "longDescription": "A delightful two-bedroom apartment perfect for small families or first-time buyers.",
     "images": [
-      "/images/property7/1.jpg",
-      "/images/property7/2.jpg",
-      "/images/property7/3.jpg",
-      "/images/property7/4.jpg",
-      "/images/property7/5.jpg",
-      "/images/property7/6.jpg"
+      "/images/property7-1.jpg",
+      "/images/property7-2.jpg",
+      "/images/property7-3.jpg",
+      "/images/property7-4.jpg",
+      "/images/property7-5.jpg",
+      "/images/property7-6.jpg"
     ],
     "lat": 51.5806,
     "lng": -0.3426
@@ -144,17 +151,18 @@
     "type": "Villa",
     "price": 380000,
     "bedrooms": 4,
+    "floorplan": "/images/floorplan.jpg",
     "dateAdded": "2024-11-15",
     "postcode": "NWE",
     "shortDescription": "Four-bedroom villa in Nuwara Eliya",
     "longDescription": "A modern four-bedroom villa located close to Nuwara Eliya's main attractions.",
     "images": [
-      "/images/property8/1.jpg",
-      "/images/property8/2.jpg",
-      "/images/property8/3.jpg",
-      "/images/property8/4.jpg",
-      "/images/property8/5.jpg",
-      "/images/property8/6.jpg"
+      "/images/property8-1.jpg",
+      "/images/property8-2.jpg",
+      "/images/property8-3.jpg",
+      "/images/property8-4.jpg",
+      "/images/property8-5.jpg",
+      "/images/property8-6.jpg"
     ],
     "lat": 51.5142,
     "lng": -0.0931

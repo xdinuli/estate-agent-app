@@ -53,7 +53,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 600;
   color: var(--secondary-color);
   margin-bottom: 20px;
@@ -464,7 +464,7 @@ button, .view-btn {
 
 .favorite-info h4 {
   margin: 0 0 4px 0;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-dark);
 }
@@ -793,4 +793,156 @@ button, .view-btn {
 
 .center-content {
   text-align: center;
+}
+/* --- Enhanced Image Gallery Styling --- */
+
+/* The outer container */
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 800px; /* Prevents it from getting too huge on desktop */
+  margin: 0 auto 30px auto;
+}
+
+/* 1. Main Image Area */
+.main-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 450px; /* Fixed height for consistent layout */
+  background-color: #f1f5f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills the box without stretching */
+  display: block;
+}
+
+/* Navigation Arrows (The "Swipe" feel) */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 2;
+}
+
+.nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* Image Counter (e.g., 1/5) */
+.image-counter {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* 2. Thumbnails Grid (Squares underneath) */
+.thumbnails-grid {
+  display: grid;
+  /* Auto-fill creates as many 80px columns as fit */
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 10px;
+}
+
+.thumbnail-btn {
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  aspect-ratio: 1 / 1; /* Forces a perfect square */
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0.6;
+  transition: all 0.2s;
+}
+
+.thumbnail-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Active State */
+.thumbnail-btn.active {
+  opacity: 1;
+  box-shadow: 0 0 0 3px #2563eb; /* Blue ring */
+  transform: scale(0.95);
+}
+
+.thumbnail-btn:hover {
+  opacity: 1;
+}
+
+/* Mobile Tweak */
+@media (max-width: 600px) {
+  .main-image-wrapper {
+    height: 300px; /* Smaller height on phones */
+  }
+  
+  .thumbnails-grid {
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); /* Smaller thumbs */
+  }
+}
+
+/* 1. Reset margins on text elements inside the card */
+.property-info h2,
+.property-info h4,
+.property-info p {
+    margin: 0;         /* Remove default browser spacing */
+    margin-bottom: 5px; /* Add a tiny, consistent gap */
+    line-height: 1.2;  /* Keep lines closer together */
+}
+
+/* 2. Specific Tweaks */
+.property-title {
+    margin-bottom: 2px !important; /* Title and price sit closer */
+    font-size: 1.25rem;
+}
+
+.property-price {
+    color: #555;
+    margin-bottom: 8px !important; /* Slightly bigger gap after price */
+}
+
+.property-desc {
+    margin-top: 8px;   /* Separate description slightly from the meta info */
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 3. Button Container Spacing */
+.property-info button,
+.property-info .view-btn {
+    margin-top: 5px;
 }

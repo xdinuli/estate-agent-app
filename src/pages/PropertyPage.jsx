@@ -16,7 +16,7 @@ export default function PropertyPage() {
       <h1>
         £{property.price.toLocaleString()} — {property.type}
       </h1>
-      <p>{property.postcode}</p>
+      <p>{property.title}</p>
 
       <ImageGallery images={property.images} />
 

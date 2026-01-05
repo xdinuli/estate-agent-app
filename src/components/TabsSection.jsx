@@ -7,7 +7,7 @@ export default function TabsSection({ property }) {
       <TabList>
         <Tab>Description</Tab>
         <Tab>Floor Plan</Tab>
-        <Tab>Location on Map</Tab>
+        <Tab>Location</Tab>
       </TabList>
 
       {/* Panel 1: Long Description */}
@@ -20,9 +20,10 @@ export default function TabsSection({ property }) {
       {/* Panel 2: Floor Plan */}
       <TabPanel>
         <div className="tab-content center-content">
-          {property.floorPlan ? (
+          {/* FIX 1: Ensure casing matches your JSON (floorPlan) in both places */}
+          {property.floorplan ? (
              <img 
-                src={property.floorPlan} 
+                src={property.floorplan} 
                 alt="Property Floor Plan" 
                 style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px' }} 
              />
@@ -43,8 +44,8 @@ export default function TabsSection({ property }) {
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
-            // Fixed the URL syntax here to be a standard embed
-            src={`https://maps.google.com/maps?q=${property.lat || 51.505},${property.lng || -0.09}&z=14&output=embed`}
+            // FIX 2 & 3: Fixed the ${} syntax and used a standard embed URL
+            src={`https://maps.google.com/maps?q=${property.lat},${property.lng}&hl=es&z=14&output=embed`}
           />
         </div>
       </TabPanel>

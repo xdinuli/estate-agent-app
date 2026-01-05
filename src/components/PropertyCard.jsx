@@ -26,15 +26,16 @@ export default function PropertyCard({ property }) {
         className="property-image" />
 
             <div className="property-info">
-                <h3 className="property-title">{property.title}</h3>
-                <h3 className="property-price">£{property.price.toLocaleString()}</h3>
-                <p className="property-location">
-                    📍 {property.location} {property.postcode && <span>({property.postcode})</span>}
-                </p>
-                <p className="property-desc">{property.description}</p>
-                <p>
-                    {property.bedrooms} Beds | {property.type} | {property.location}
-                </p>
+                <h2 className="property-title">📍{property.title}</h2>
+                <h4 className="property-price">£{property.price.toLocaleString()}</h4>
+                <h4 className="property-type">{property.type} 
+                    <span style={{ fontWeight: 'normal', fontSize: '0.85em', color: '#777', marginLeft: '8px' }}>
+                        • {new Date(property.dateAdded).toLocaleDateString()}
+                    </span>
+                </h4>
+                <p> {property.bedrooms} Beds </p>
+                <p className="property-desc">{property.shortDescription}</p>
+                
                 
                 <button onClick={() => addFavorite(property)}>
                     Add to Favorites ❤

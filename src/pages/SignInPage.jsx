@@ -10,11 +10,10 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="layout">
-      <div className="signin-container">
+    <div className="signin-container">
         <div className="signin-card">
-          <h2>Welcome Back</h2>
-          <p>Sign in to your Estately account</p>
+          <h2 style={{ color: '#2563eb', marginBottom: '10px' }}>Estately</h2>
+          <h3 style={{ margin: '0 0 25px 0', fontWeight: '500', color: '#64748b' }}>Good to See You Back!</h3>
           
           <form onSubmit={handleSubmit} className="signin-form">
             <div className="form-group">
@@ -46,11 +45,10 @@ export default function SignInPage() {
             </button>
           </form>
 
-          <div className="signin-footer">
-            <p>Don't have an account? <Link to="#">Sign up</Link></p>
+          <div style={{ marginTop: '25px', fontSize: '0.9rem', color: '#94a3b8' }}>
+            <p>Don't have an account? <Link to="#" style={{ color: '#2563eb', fontWeight: '600' }}>Sign up</Link></p>
           </div>
         </div>
-      </div>
     </div>
   );
 }

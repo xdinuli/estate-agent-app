@@ -80,12 +80,6 @@ Future enhancements could include:
 
 ---
 
-## Screenshots
-
-*(Screenshots of the search page, property detail page, and favourites panel can be added here.)*
-
----
-
 ## Live Application
 
 Deployed Application:  

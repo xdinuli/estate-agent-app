@@ -8,16 +8,18 @@ export default function SearchPage() {
   const [filters, setFilters] = useState({
     type: "Any",
     price: [200000, 1000000],
-    bedrooms: "",
+    bedrooms: "Any",
     date: null,
-    postcode: ""
+    location: "Any"
   });
 
   const filteredProperties = properties.filter((property) => {
+    // Type Filter
     if (filters.type !== "Any" && property.type !== filters.type) {
       return false;
     }
 
+    // Price Filter
     if (
       property.price < filters.price[0] ||
       property.price > filters.price[1]
@@ -25,21 +27,24 @@ export default function SearchPage() {
       return false;
     }
 
-    if (filters.bedrooms !== "Any" && filters.bedrooms !== "") {
-      if (property.bedrooms !== filters.bedrooms) {
+    // Bedroom Filter
+    if (filters.bedrooms !== "Any") {
+      if (property.bedrooms < filters.bedrooms) {
         return false;
       }
     }
 
+    // Date Filter
     if (filters.date) {
-      const added = new Date(property.date);
+      const added = new Date(property.dateAdded);
       if (added < filters.date) {
         return false;
       }
     }
 
-    if (filters.postcode !== "Any" && filters.postcode !== "") {
-      if (property.postcode !== filters.postcode) {
+    // Location Filter
+    if (filters.location !== "Any") {
+      if (!property.title.includes(filters.location)) {
         return false;
       }
     }
@@ -49,17 +54,23 @@ export default function SearchPage() {
   return (
     <div className="layout">
         <div className="main">
-            <h1>Property Search</h1>
+            <h1 style={{ marginBottom: '20px' }}>Find Your Dream Home</h1>
             <SearchForm filters={filters} setFilters={setFilters} />
 
-            <h2>Search Results ({filteredProperties.length})</h2>
+            <h2 style={{ fontSize: '1.5rem', marginBottom: '20px' }}>
+                Search Results ({filteredProperties.length})
+            </h2>
 
             <div className="results-grid">
-                {filteredProperties.map((property) => (
-                <PropertyCard 
-                    key={property.id} 
-                    property={property} />
-                ))}
+                {filteredProperties.length > 0 ? (
+                    filteredProperties.map((property) => (
+                    <PropertyCard 
+                        key={property.id} 
+                        property={property} />
+                    ))
+                ) : (
+                    <p>No properties match your search criteria.</p>
+                )}
             </div>
         </div>
         

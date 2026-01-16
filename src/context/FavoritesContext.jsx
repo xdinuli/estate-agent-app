@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 const FavoritesContext = createContext();
 
@@ -6,15 +6,15 @@ export function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
 
   const addFavorite = (property) => {
-    const isDuplicate = favorites.find((item) => item.id === property.id);
-    
-    if (!isDuplicate) {
-        setFavorites([...favorites, property]);
-    }
+    const newFavorite = { 
+        ...property, 
+        uniqueId: Date.now() + Math.random() 
+    };
+    setFavorites((prev) => [...prev, newFavorite]);
   };
 
-  const removeFavorite = (id) => {
-    setFavorites(favorites.filter((property) => property.id !== id));
+  const removeFavorite = (uniqueId) => {
+    setFavorites((prev) => prev.filter((item) => item.uniqueId !== uniqueId));
   };
 
   const clearFavorites = () => {
@@ -22,12 +22,9 @@ export function FavoritesProvider({ children }) {
   };
 
   return (
-    <FavoritesContext.Provider value={{ 
-        favorites, 
-        addFavorite, 
-        removeFavorite, 
-        clearFavorites 
-    }}>
+    <FavoritesContext.Provider
+      value={{ favorites, addFavorite, removeFavorite, clearFavorites }}
+    >
       {children}
     </FavoritesContext.Provider>
   );
